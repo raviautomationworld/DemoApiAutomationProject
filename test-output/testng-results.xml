@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="3612" started-at="2020-04-11T19:54:48Z" finished-at="2020-04-11T19:54:51Z">
+  <suite name="Default suite" duration-ms="13673" started-at="2020-11-07T07:04:07Z" finished-at="2020-11-07T07:04:21Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="3612" started-at="2020-04-11T19:54:48Z" finished-at="2020-04-11T19:54:51Z">
+    <test name="Default test" duration-ms="13673" started-at="2020-11-07T07:04:07Z" finished-at="2020-11-07T07:04:21Z">
       <class name="Tests.StaticJsonPayloads">
-        <test-method status="PASS" signature="AddBookTest()[pri:0, instance:Tests.StaticJsonPayloads@5e3a8624]" name="AddBookTest" duration-ms="3581" started-at="2020-04-11T19:54:48Z" finished-at="2020-04-11T19:54:51Z">
+        <test-method status="PASS" signature="AddBookTest()[pri:0, instance:Tests.StaticJsonPayloads@6fd02e5]" name="AddBookTest" duration-ms="13600" started-at="2020-11-07T07:04:07Z" finished-at="2020-11-07T07:04:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AddBookTest -->

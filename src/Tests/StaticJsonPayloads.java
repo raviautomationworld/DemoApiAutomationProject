@@ -2,13 +2,10 @@ package Tests;
 
 import static io.restassured.RestAssured.given;
 
-import java.nio.file.Paths;
-
 import org.testng.annotations.Test;
 
 
 
-import Files.Payloads;
 import Files.ReusableMethods;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;

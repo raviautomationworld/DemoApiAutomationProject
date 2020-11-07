@@ -6,7 +6,6 @@ import io.restassured.path.json.JsonPath;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-import org.jvnet.staxex.StAxSOAPBody.Payload;
 import org.testng.Assert;
 
 import Files.Payloads;
