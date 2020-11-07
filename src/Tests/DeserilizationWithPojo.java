@@ -1,6 +1,9 @@
 package Tests;
 import static io.restassured.RestAssured.given;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -8,13 +11,15 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 
+import Pojo.Api;
 import Pojo.CreateToken;
 import Pojo.GetCourseResponse;
 import io.restassured.parsing.Parser;
 import io.restassured.path.json.JsonPath;
 
-public class OAuthTestWithPojo {
+public class DeserilizationWithPojo {
 
 	public static void main(String[] args) throws Exception {
 		
@@ -44,7 +49,7 @@ public class OAuthTestWithPojo {
 		System.out.println(redirectUrl);
 		*/
 	
-		String redirectUrl = "https://rahulshettyacademy.com/getCourse.php?code=4%2F0AY0e-g6Pj6qx6LxBYtFC-VUO0zOxgduI4jFO-KOkny8fbWN6S_R0ZSLCITO64RjvKxGXKA&scope=email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=none";
+		String redirectUrl = "https://rahulshettyacademy.com/getCourse.php?code=4%2F0AY0e-g6lft1wWXGKFt_bLekN07KXbuBInJUAzEr4JB3LyvEey1xAO7_1l6svDhPmOtjhRQ&scope=email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=none";
 		
 		String partialCode = redirectUrl.split("code=")[1];
 		
@@ -103,6 +108,30 @@ public class OAuthTestWithPojo {
 		System.out.println("Instructor WebAutomation 1st Course Name::::::: "+finalResponse.getCourses().getWebAutomation().get(0).getCourseTitle());
 		
 		System.out.println("Instructor WebAutomation 1st Course Price:::::::"+finalResponse.getCourses().getWebAutomation().get(0).getPrice());
+		
+		/*
+		 * List out all courses are expected are NOT in API
+		 */
+		
+		String[] expectedApiCourses = {"Rest Assured Automation using Java","SoapUI Webservices testing"};
+		
+		 List<Api> apiCourses = finalResponse.getCourses().getApi();
+		 
+		 ArrayList<String> actualApiCoursesList= new ArrayList<String>();
+		 
+		 int n = apiCourses.size();
+		 
+		 for(int i = 0;i<n;i++)
+		 {
+			 actualApiCoursesList.add(apiCourses.get(i).getCourseTitle());
+		 }
+		 
+		 List<String> expectedApiCoursesList= Arrays.asList(expectedApiCourses);
+		 
+		 System.out.println(actualApiCoursesList.equals(expectedApiCoursesList));
+		 
+		 Assert.assertTrue(actualApiCoursesList.equals(expectedApiCoursesList));
+		 
 
 		System.out.println("=======================================================================");
 		System.out.println("=================Validations ended=============================");
